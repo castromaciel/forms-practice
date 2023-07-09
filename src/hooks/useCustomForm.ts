@@ -20,10 +20,20 @@ const useCustomForm = <T>(defaultValue: T) => {
 
     console.log(formData)
   }
+
+  const isEmailValid = (email: string) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(email)
+  }
+
+  const onReset = () => setFormData(defaultValue)
+
   return {
     ...formData,
     formData,
     handleChange,
+    isEmailValid,
+    onReset,
     onSubmit
   }
 }
