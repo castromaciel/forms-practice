@@ -1,6 +1,7 @@
 import {
   BrowserRouter, NavLink, Navigate, Route, Routes
 } from 'react-router-dom'
+import { RegisterPage } from '../pages'
 
 const Navigation = () => (
   <BrowserRouter>
@@ -14,11 +15,10 @@ const Navigation = () => (
               className={({ isActive }) => (isActive ? 'nav-active' : '')}
             >
               Home
-
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className={({ isActive }) => (isActive ? 'nav-active' : '')}>About</NavLink>
+            <NavLink to="/register" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Register</NavLink>
           </li>
           <li>
             <NavLink to="/users" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Users</NavLink>
@@ -26,16 +26,15 @@ const Navigation = () => (
         </ul>
 
       </nav>
+
+      <Routes>
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/users" element={<h1>users</h1>} />
+        <Route path="/home" element={<h1>home</h1>} />
+
+        <Route path="/*" element={<Navigate to="/home" replace />} />
+      </Routes>
     </div>
-
-    <Routes>
-      <Route path="about" element={<h1>about</h1>} />
-      <Route path="users" element={<h1>users</h1>} />
-      <Route path="home" element={<h1>home</h1>} />
-
-      <Route path="/*" element={<Navigate to="/home" replace />} />
-    </Routes>
-
   </BrowserRouter>
 )
 
