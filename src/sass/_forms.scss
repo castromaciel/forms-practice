@@ -10,6 +10,11 @@ input, select {
   padding: 12px;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   margin-top: 24px;
   padding: 12px;
