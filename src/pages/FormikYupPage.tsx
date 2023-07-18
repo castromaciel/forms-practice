@@ -3,9 +3,7 @@ import * as Yup from 'yup'
 
 const FormikYupPage = () => {
   const {
-    handleChange, values: {
-      email, firstName, lastName
-    }, handleSubmit, errors, touched, handleBlur
+    errors, getFieldProps, handleSubmit, touched
   } = useFormik({
     initialValues: {
       firstName: '',
@@ -38,11 +36,8 @@ const FormikYupPage = () => {
           First name
           <input
             type="text"
-            name="firstName"
-            id="firstName" 
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={firstName}
+            id="firstName"
+            {... getFieldProps('firstName')}
           />
         </label>
         {touched.firstName && errors?.firstName && <span>{errors.firstName}</span>}
@@ -51,11 +46,8 @@ const FormikYupPage = () => {
           Last name
           <input
             type="text"
-            name="lastName"
             id="lastName"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={lastName}
+            {... getFieldProps('lastName')}
           />
         </label>
         {touched.lastName && errors?.lastName && <span>{errors.lastName}</span>}
@@ -64,11 +56,8 @@ const FormikYupPage = () => {
           Email address
           <input
             type="email"
-            name="email"
             id="email" 
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={email}
+            {... getFieldProps('email')}
           />
         </label>
         {touched.email && errors?.email && <span>{errors.email}</span>}
