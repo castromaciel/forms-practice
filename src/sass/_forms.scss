@@ -13,6 +13,7 @@ input, select {
 label {
   display: flex;
   flex-direction: column;
+  margin: 8px 0 ;
 }
 
 button {
@@ -22,6 +23,7 @@ button {
 
 span, .error-message {
   color: red;
+  margin-bottom: 8px;
 }
 
 .has-error{
