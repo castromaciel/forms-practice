@@ -35,8 +35,8 @@ const Navigation = () => (
       <Routes>
         <Route path="/custom-form" element={<RegisterPage />} />
         <Route path="/formik-basic" element={<FormikBasicPage />} />
-        <Route path="/formik-components" element={<FormikYupPage />} />
-        <Route path="/formik-yup" element={<FormikComponents />} />
+        <Route path="/formik-yup" element={<FormikYupPage />} />
+        <Route path="/formik-components" element={<FormikComponents />} />
 
         <Route path="/*" element={<Navigate to="/custom-form" replace />} />
       </Routes>

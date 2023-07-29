@@ -12,7 +12,9 @@ const FormikComponents = () => (
       initialValues={{
         firstName: '',
         lastName: '',
-        email: ''
+        email: '',
+        terms: false,
+        jobType: ''
       }}
       onSubmit={(values) => console.log(values)}
       validationSchema={Yup.object({
@@ -24,6 +26,11 @@ const FormikComponents = () => (
           .required('Field is required'),
         email: Yup.string()
           .email('Field must be a valid email address')
+          .required('Field is required'),
+        terms: Yup.boolean()
+          .oneOf([true], 'Must be accept terms and conditions'),
+        jobType: Yup.string()
+          .oneOf(['developer', 'designer', 'scrum-master'])
           .required('Field is required')
       })}
     >
@@ -31,15 +38,30 @@ const FormikComponents = () => (
         <Form>
           <label htmlFor="firstName">First name</label>
           <Field name="firstName" type="text" />
-          <ErrorMessage name="firstName" />
+          <ErrorMessage name="firstName" component="span" />
            
           <label htmlFor="lastName">Last name</label>
           <Field name="lastName" type="text" />
-          <ErrorMessage name="lastName" />
+          <ErrorMessage name="lastName" component="span" />
            
           <label htmlFor="email">Email address</label>
           <Field name="email" type="email" />
-          <ErrorMessage name="email" />
+          <ErrorMessage name="email" component="span" />
+
+          <label htmlFor="jobType">Job Type</label>
+          <Field name="jobType" as="select">
+            <option>Pick Something</option>
+            <option value="developer">Developer</option>
+            <option value="designer">Designer</option>
+            <option value="scrum-master">Scrum master</option>
+          </Field>
+          <ErrorMessage name="jobType" component="span" />
+
+          <label className="custom-label">
+            <Field name="terms" type="checkbox" />
+            Terms and conditions
+          </label>
+          <ErrorMessage name="terms" component="span" />
    
           <button type="submit">Enviar</button>
         </Form>
