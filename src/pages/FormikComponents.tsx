@@ -37,15 +37,15 @@ const FormikComponents = () => (
       {() => (
         <Form>
           <label htmlFor="firstName">First name</label>
-          <Field name="firstName" type="text" />
+          <Field name="firstName" type="text" placeholder="Enter your first name" />
           <ErrorMessage name="firstName" component="span" />
            
           <label htmlFor="lastName">Last name</label>
-          <Field name="lastName" type="text" />
+          <Field name="lastName" type="text" placeholder="Enter your last name" />
           <ErrorMessage name="lastName" component="span" />
            
           <label htmlFor="email">Email address</label>
-          <Field name="email" type="email" />
+          <Field name="email" type="email" placeholder="example@email.com" />
           <ErrorMessage name="email" component="span" />
 
           <label htmlFor="jobType">Job Type</label>
