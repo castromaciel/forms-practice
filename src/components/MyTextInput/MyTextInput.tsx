@@ -1,4 +1,4 @@
-import { useField } from 'formik'
+import { ErrorMessage, useField } from 'formik'
 import { HTMLInputTypeAttribute } from 'react'
 
 interface Props {
@@ -17,16 +17,12 @@ const MyTextInput = ({
   placeholder = 'placeholder',
   ...props
 }: Props) => {
-  const [field, meta] = useField(props)
+  const [field] = useField(props)
   return (
     <>
       <label htmlFor={id}>{label}</label>
       <input {...field} {...props} type={type} id={id} placeholder={placeholder} />
-      {
-        meta.touched && meta.error && (
-          <span className="error">{meta.error}</span>
-        )
-      }
+      <ErrorMessage name={props.name} component="span" />
     </>
   ) 
 }

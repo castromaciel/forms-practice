@@ -2,9 +2,8 @@ import {
   BrowserRouter, NavLink, Navigate, Route, Routes
 } from 'react-router-dom'
 import {
-  FormikBasicPage, FormikComponents, FormikYupPage, RegisterPage
+  FormikAbstraction, FormikBasicPage, FormikComponents, FormikYupPage, RegisterPage
 } from '../pages'
-import FormikAbstractions from '../pages/FormikAbstraction'
 
 const Navigation = () => (
   <BrowserRouter>
@@ -41,7 +40,7 @@ const Navigation = () => (
         <Route path="/formik-basic" element={<FormikBasicPage />} />
         <Route path="/formik-yup" element={<FormikYupPage />} />
         <Route path="/formik-components" element={<FormikComponents />} />
-        <Route path="/formik-abstraction" element={<FormikAbstractions />} />
+        <Route path="/formik-abstraction" element={<FormikAbstraction />} />
 
         <Route path="/*" element={<Navigate to="/custom-form" replace />} />
       </Routes>
