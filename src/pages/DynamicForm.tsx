@@ -1,13 +1,38 @@
 import { Form, Formik } from 'formik'
 import { HTMLInputTypeAttribute } from 'react'
+import * as Yup from 'yup'
 import { MySelectInput, MyTextInput } from '../components'
 import jsonForm from '../db/custom-form.json'
 
 const DynamicForm = () => {
   const initialValues: {[x:string]: string} = {}
+  const requiredFields: {[x:string]: any} = {}
+
   jsonForm.forEach((field) => {
     initialValues[field.name] = field.value
+
+    if (!field.validations?.length) return
+
+    let schema = Yup.string()
+
+    field.validations.forEach((validation) => {
+      if (validation.type === 'required') {
+        schema = schema.required('This field is required')
+      }
+
+      if (validation.type === 'minLength') {
+        schema = schema.min(validation.value! || 2, `Must be at least ${validation.value! || 2} characters`)
+      }
+      
+      if (validation.type === 'email') {
+        schema = schema.email('Field must be a valid email address')
+      }
+    })
+
+    requiredFields[field.name] = schema
   })
+
+  const validationSchema = Yup.object({ ...requiredFields })
 
   return (
     <div>
@@ -16,6 +41,7 @@ const DynamicForm = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
       >
         { () => (
           <Form noValidate>
