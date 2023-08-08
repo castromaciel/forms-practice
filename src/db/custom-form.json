@@ -1,0 +1,50 @@
+[
+  {
+    "label": "First Name",
+    "name": "firstName",
+    "placeholder": "Enter your first name",
+    "type": "input",
+    "value": ""
+  },
+  {
+    "label": "Last Name",
+    "name": "lastName",
+    "placeholder": "Enter your last name",
+    "type": "input",
+    "value": ""
+  },
+  {
+    "label": "Email",
+    "name": "email",
+    "placeholder": "example@example.com",
+    "type": "email",
+    "value": ""
+  },
+  {
+    "label": "Password",
+    "name": "password",
+    "placeholder": "Enter your password",
+    "type": "password",
+    "value": ""
+  },
+  {
+    "label": "Favourite game",
+    "name": "favouriteGame",
+    "type": "select",
+    "value": "",
+    "options": [
+      {
+        "id": 1,
+        "label": "Super Mario"
+      },
+      {
+        "id": 2,
+        "label": "Resident Evil"
+      },
+      {
+        "id": 3,
+        "label": "Fifa 2023"
+      }
+    ]
+  }
+]

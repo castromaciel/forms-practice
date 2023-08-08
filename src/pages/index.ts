@@ -1,3 +1,4 @@
+export { default as DynamicForm } from './DynamicForm'
 export { default as FormikAbstraction } from './FormikAbstraction'
 export { default as FormikBasicPage } from './FormikBasicPage'
 export { default as FormikComponents } from './FormikComponents'

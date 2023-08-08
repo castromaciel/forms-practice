@@ -1,9 +1,7 @@
 import {
   BrowserRouter, NavLink, Navigate, Route, Routes
 } from 'react-router-dom'
-import {
-  FormikAbstraction, FormikBasicPage, FormikComponents, FormikYupPage, RegisterPage
-} from '../pages'
+import { LINKS } from '../constants'
 
 const Navigation = () => (
   <BrowserRouter>
@@ -11,36 +9,28 @@ const Navigation = () => (
       <nav>
         <img src="/react.svg" alt="react logo" width={100} />
         <ul>
-          <li>
-            <NavLink
-              to="/custom-form"
-              className={({ isActive }) => (isActive ? 'nav-active' : '')}
-            >
-              Custom form
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/formik-basic" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Formik basic</NavLink>
-          </li>
-          <li>
-            <NavLink to="/formik-yup" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Formik Yup</NavLink>
-          </li>
-          <li>
-            <NavLink to="/formik-components" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Formik components</NavLink>
-          </li>
-          <li>
-            <NavLink to="/formik-abstraction" className={({ isActive }) => (isActive ? 'nav-active' : '')}>Formik abstraction</NavLink>
-          </li>
+          {
+            LINKS.map(({ label, path }) => (
+              <li key={label}>
+                <NavLink
+                  to={path}
+                  className={({ isActive }) => (isActive ? 'nav-active' : '')}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))
+          }
         </ul>
 
       </nav>
 
       <Routes>
-        <Route path="/custom-form" element={<RegisterPage />} />
-        <Route path="/formik-basic" element={<FormikBasicPage />} />
-        <Route path="/formik-yup" element={<FormikYupPage />} />
-        <Route path="/formik-components" element={<FormikComponents />} />
-        <Route path="/formik-abstraction" element={<FormikAbstraction />} />
+        {
+          LINKS.map(({ component: Page, path }) => (
+            <Route key={path} path={path} element={<Page />} />
+          ))
+        }
 
         <Route path="/*" element={<Navigate to="/custom-form" replace />} />
       </Routes>
