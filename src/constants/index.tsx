@@ -4,6 +4,7 @@ import {
   FormikBasicPage,
   FormikComponents,
   FormikYupPage,
+  RegisterFormik,
   RegisterPage
 } from '../pages'
 
@@ -32,6 +33,11 @@ export const LINKS = [
     component: FormikComponents,
     label: 'Formik components',
     path: '/formik-components'
+  },
+  {
+    component: RegisterFormik,
+    label: 'Register Formik',
+    path: '/register-formik'
   },
   {
     component: DynamicForm,
