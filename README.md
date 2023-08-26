@@ -1,5 +1,5 @@
 <h1 align="center">
-Template: Vite + Vitest + React + TypeScript
+Forms practice
 </h1>
 
 <div align="center">
@@ -7,16 +7,6 @@ Template: Vite + Vitest + React + TypeScript
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 </div>
-
-## Usage
-
-### Use Template button
-Click the `Use this template` button above the file list, then use the Owner drop-down menu, and select the account you want to own the repository. Creating a repository from a template has the following advantages:
-
-A repository created from a template starts with a single commit.
-Commits to a repository created from a template do appear in your contribution graph.
-Creating a repository from a template starts a new project quickly.
-
 
 ## Development
 
@@ -33,7 +23,7 @@ Creating a repository from a template starts a new project quickly.
 
 To get a local copy, clone it using:
 ```sh
-git clone https://github.com/castromaciel/template-vite-react-ts.git
+git clone https://github.com/castromaciel/forms-practice.git
 ```
 
 Or get it downloading
@@ -66,12 +56,12 @@ In this project, you can run the following scripts:
 
 | Script        | Description                                         |
 | ------------- | --------------------------------------------------- |
-| npm run build    | Builds the app for production to the `dist` folder. |
-| npm run coverage | Runs tests with code coverage                       |
-| npm run dev      | Runs the app in the development mode.               |
-| npm run preview  | Start a local web server that serves the built solution from ./dist for previewing |
-| npm run prepare  | Install husky githooks                              |
-| npm run test     | Runs tests with vitest.                             |
+| pnpm build    | Builds the app for production to the `dist` folder. |
+| pnpm coverage | Runs tests with code coverage                       |
+| pnpm dev      | Runs the app in the development mode.               |
+| pnpm preview  | Start a local web server that serves the built solution from ./dist for previewing |
+| pnpm prepare  | Install husky githooks                              |
+| pnpm test     | Runs tests with vitest.                             |
 
 ## Base Dependencies
 
